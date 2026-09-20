@@ -1,0 +1,36 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  test:
+    name: fixtures
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: npm test
+      # The repo formats itself with the plugin, so this also asserts that a
+      # real `prettier --write` run settles in a single pass.
+      - run: npm run format:check
+
+  compat:
+    name: prettier matrix
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      # Every prettier below 3.7.0 must refuse, every one above must pass all
+      # the fixtures. This is the job that holds the floor.
+      - run: npm run test:compat

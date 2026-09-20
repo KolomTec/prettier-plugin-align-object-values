@@ -1,0 +1,48 @@
+{
+  "name": "prettier-plugin-align-object-values",
+  "version": "0.1.0",
+  "private": true,
+  "description": "A prettier plugin that lines up the values of an object literal in one column.",
+  "keywords": [
+    "prettier",
+    "prettier-plugin",
+    "formatter",
+    "align",
+    "alignment",
+    "object",
+    "code-style"
+  ],
+  "license": "MIT",
+  "author": "Martijn de Haan",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/KolomTec/prettier-plugin-align-object-values.git"
+  },
+  "type": "module",
+  "main": "./src/index.mjs",
+  "exports": {
+    ".": "./src/index.mjs",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "src",
+    "README.md",
+    "LICENSE"
+  ],
+  "engines": {
+    "node": ">=18"
+  },
+  "peerDependencies": {
+    "prettier": ">=3.7.0"
+  },
+  "devDependencies": {
+    "prettier": "^3.9.8"
+  },
+  "scripts": {
+    "test": "node --test \"test/**/*.test.mjs\"",
+    "test:compat": "node scripts/compat.mjs",
+    "make-fixtures": "node scripts/make-fixtures.mjs",
+    "format": "prettier --write .",
+    "format:check": "prettier --check ."
+  }
+}
