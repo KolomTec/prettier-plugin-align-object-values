@@ -1,0 +1,5 @@
+{
+  "plugins": ["./src/index.mjs"],
+  "printWidth": 120,
+  "alignObjectValues": "preserve"
+}

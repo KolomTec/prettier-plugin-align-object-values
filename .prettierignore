@@ -1,0 +1,5 @@
+.compat/
+package-lock.json
+
+# The original design note, kept verbatim as provenance.
+docs/HANDOFF.md
